@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Coding Sensei</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1><img src="logo.jpeg" alt="Logo" width = "75" height = "75" >Coding Sensei</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tutorials">Tutorials</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="container">
+        <h2> Welcome to Coding Sensei!</h2>
+        <h3>Your go-to resource for basic coding help and examples.</h3>
+
+        <div class="login-container">
+            <form id="loginForm" onsubmit="return loginUser()">
+                <h2>Login</h2>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <p id="registerText">Don't have an account? <a href="#" id="registerLink" onclick="showRegistration()">Register here</a>.</p>
+        </div>
+    </section>
+    <section id="user-home" class="container" style="display: none;">
+        <h2>Welcome to Your Coding Sensei Dashboard!</h2>
+        
+    </section>
+
+    <section id="tutorials" class="container">
+        <h2>Coding Tutorials</h2>
+        <p>We know coding can be difficult for most, so here are some videos we found to be really educational and extremely helpful:
+        </p>
+        <ul>
+            <p> This is a Great Intro to Java by programmer Alex Lee </p>
+        <li><a href="https://www.youtube.com/watch?v=RRubcjpTkks" target="Java tutorial">Youtube Java basics - Alex Lee</a></li>
+
+        <p> This is a Quick and Easy Way to Learn Multithreading. 'Coding With John" has Amazing examples </p>
+        <li><a href="https://www.youtube.com/watch?v=r_MbozD32eo&t=250s" target="Multithreading">Coding With John - MltiThreading in Java</a></li>
+
+        <p> A great tutorial showing how to make a fun, quick, and easy game. Hosted by the channel "Coding With John"</p>
+        <li><a href="https://www.youtube.com/watch?v=Q4e9tNeZ2Fw" target="Lottery">Coding With John - Coding a Lottery Game in Java</a></li>
+    </ul>
+        
+    </section>
+
+    <section id="examples" class="container">
+        <h2>Code Examples</h2>
+        <p>Check out these coding examples to understand concepts better.</p>
+        
+        <ul>
+            <p> According to "Coursera", "Python is commonly used for developing websites and software, task automation, data analysis, and data visualization. Since it's relatively easy to learn, Python has been adopted by many non-programmers such as accountants and scientists, for a variety of everyday tasks, like organizing finances." </p>
+
+                <li><p> This is an excellent example of a BMI Calculator in Python: </p>
+                    <pre> Height=float(input("Enter your height in centimeters: "))
+    Weight=float(input("Enter your Weight in Kg: "))
+    Height = Height/100
+    BMI=Weight/(Height*Height)
+    print("your Body Mass Index is: ",BMI)
+    if(BMI>0):
+        if(BMI<=16):
+            print("you are severely underweight")
+        elif(BMI<=18.5):
+            print("you are underweight")
+        elif(BMI<=25):
+            print("you are Healthy")
+        elif(BMI<=30):
+            print("you are overweight")
+        else: print("you are severely overweight")
+    else:("enter valid details")
+</pre>
+    <p> Here's another great example of converting milliseconds to minutes and seconds in Java:</p>
+    <pre>
+import java.util.concurrent.TimeUnit;
+
+class Main {
+  public static void main(String[] args) {
+
+    long milliseconds = 1000000;
+
+    // us of toSeconds()
+    // to convert milliseconds to minutes
+    long seconds = TimeUnit.MILLISECONDS.toSeconds(milliseconds);
+    System.out.println(milliseconds + " Milliseconds = " + seconds + " Seconds");
+
+    // use of toMinutes()
+    // to convert milliseconds to minutes
+    long minutes = TimeUnit.MILLISECONDS.toMinutes(milliseconds);
+    System.out.println(milliseconds + " Milliseconds = " + minutes + " Minutes");
+  }
+}
+</pre>
+</li>
+</ul>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Contact Us</h2>
+        <p>Have questions or suggestions? Reach out to us!</p>
+        <pre>
+        Email: CodingSens3i@gmail.com
+        Phone: (919) 539-4582
+        Instagram: Coming Soon!
+    </pre>
+    </section>
+
+    <footer class="container">
+        <p> <img src="logo.jpeg" alt="Logo" width = "50" height = "50"> &copy; 2023 Coding Sensei. All rights reserved.</p>
+    </footer>
+
+    <section id="register" class="container" style="display: none;">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <label for="newUsername">New Username:</label>
+            <input type="text" id="newUsername" name="newUsername" required>
+
+            <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required>
+
+            <button type="button" onclick="registerUser()">Register</button>
+        </form>
+    </section>
+
+
+    <script>
+        function showRegistration() {
+            // Show the registration section and hide others
+            document.getElementById("register").style.display = "block";
+            document.getElementById("home").style.display = "none";
+            document.getElementById("user-home").style.display = "none";
+            // Hide the registration link
+            document.getElementById("registerText").style.display = "none";
+        }
+
+        function registerUser() {
+            // Perform registration logic (this is a placeholder)
+            alert("Registration successful!");
+
+            // Redirect to the user's home page
+            document.getElementById("register").style.display = "none";
+            document.getElementById("home").style.display = "none";
+            document.getElementById("user-home").style.display = "block";
+        }
+
+        function loginUser() {
+            // Placeholder for login logic (assume successful login for any input)
+            alert("Login successful!");
+
+            // Redirect to the user's home page
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("home").style.display = "none";
+            document.getElementById("user-home").style.display = "block";
+            // Hide the registration link
+            document.getElementById("registerText").style.display = "none";
+
+            // Prevent the form from submitting
+            return false;
+        }
+    </script>
+
+    <style>
+        /* Add the contents of styles.css here */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #191970;
+            color: #fff;
+            padding: 1rem 0;
+            background-image: url('../csc340-1/coding.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        section {
+            margin: 2rem 0;
+        }
+
+        footer {
+            background-color: #191970;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            background-image: url('../csc340-1/coding.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .login-container,
+        #register,
+        #user-home {
+            width: 30%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input {
+            padding: 10px;
+        }
+        button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #555;
+    }
+
+    
+    button[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    button[type="button"] {
+        background-color: #f44336;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+    }
+
+    button[type="button"]:hover {
+        background-color: #191970;
+    }
+</style>
+
+
